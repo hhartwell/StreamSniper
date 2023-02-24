@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/basic_bullet_kit.gdns"
 }, {
-"base": "Resource",
+"base": "",
 "class": "BulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/bullet_kit.gdns"
@@ -63,13 +63,13 @@ _global_script_class_icons={
 "BasicBulletKit": "res://addons/native_bullets/icons/icon_bullet_kit.svg",
 "BulletKit": "res://addons/native_bullets/icons/icon_bullet_kit.svg",
 "Bullets": "res://addons/native_bullets/icons/icon_bullets.svg",
-"BulletsEnvironment": "",
-"BulletsSpawner": "",
+"BulletsEnvironment": "res://addons/native_bullets/icons/icon_bullets_environment.svg",
+"BulletsSpawner": "res://addons/native_bullets/icons/icon_bullet_properties.svg",
 "DynamicBulletKit": "res://addons/native_bullets/icons/icon_bullet_kit.svg",
 "FollowingBulletKit": "res://addons/native_bullets/icons/icon_bullet_kit.svg",
 "FollowingDynamicBulletKit": "res://addons/native_bullets/icons/icon_bullet_kit.svg",
-"TimedEvents": "",
-"TimedRotator": ""
+"TimedEvents": "res://addons/native_bullets/icons/icon_timed_events.svg",
+"TimedRotator": "res://addons/native_bullets/icons/icon_timed_rotator.svg"
 }
 
 [application]
