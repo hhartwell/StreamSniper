@@ -1,162 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://addons/kenney_piratepack/Tilesheet/tiles_sheet.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 11.5 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 64.125 )
-
 [node name="Tileset" type="Node2D"]
 
-[node name="sand" type="Sprite" parent="."]
-position = Vector2( 272, 0 )
+[node name="grass_1" type="Sprite" parent="."]
+position = Vector2( 23, 17 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 192, 0, 128, 128 )
+region_rect = Rect2( 384, 64, 64, 64 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="sand"]
+[node name="StaticBody2D" type="StaticBody2D" parent="grass_1"]
 
-[node name="Sprite3" type="Sprite" parent="."]
-position = Vector2( 461, -1 )
+[node name="grass_2" type="Sprite" parent="."]
+position = Vector2( 98, 19 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 192, 128, 128, 128 )
+region_rect = Rect2( 448, 128, 64, 64 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="grass_2"]
 
-[node name="corner1" type="Sprite" parent="."]
-position = Vector2( 648, 4 )
+[node name="grass_3" type="Sprite" parent="."]
+position = Vector2( 23, 93 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 320, 0, 128, 128 )
+region_rect = Rect2( 384, 128, 64, 64 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="corner1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="grass_3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="corner1/StaticBody2D"]
-position = Vector2( 64, 12 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="corner1/StaticBody2D"]
-position = Vector2( 10, 64 )
-shape = SubResource( 2 )
-
-[node name="corner2" type="Sprite" parent="."]
-position = Vector2( 952, 2 )
+[node name="grass_4" type="Sprite" parent="."]
+position = Vector2( 98, 93 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 448, 0, 128, 128 )
+region_rect = Rect2( 448, 64, 64, 64 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="corner2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="corner2/StaticBody2D"]
-position = Vector2( 64, 11 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="corner2/StaticBody2D"]
-position = Vector2( 118, 64 )
-shape = SubResource( 2 )
-
-[node name="corner3" type="Sprite" parent="."]
-position = Vector2( 655, 282 )
-texture = ExtResource( 1 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 320, 128, 128, 128 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="corner3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="corner3/StaticBody2D"]
-position = Vector2( 64, 116 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="corner3/StaticBody2D"]
-position = Vector2( 10, 64 )
-shape = SubResource( 2 )
-
-[node name="corner4" type="Sprite" parent="."]
-position = Vector2( 936, 284 )
-texture = ExtResource( 1 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 448, 128, 128, 128 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="corner4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="corner4/StaticBody2D"]
-position = Vector2( 64, 116 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="corner4/StaticBody2D"]
-position = Vector2( 118, 64 )
-shape = SubResource( 2 )
-
-[node name="beach1" type="Sprite" parent="."]
-position = Vector2( 788, 5 )
-texture = ExtResource( 1 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 384, 0, 128, 128 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="beach1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="beach1/StaticBody2D"]
-position = Vector2( 64, 12 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="beach1/StaticBody2D"]
-position = Vector2( 10, 64 )
-shape = SubResource( 2 )
-
-[node name="grass" type="Sprite" parent="."]
-position = Vector2( 788, 138 )
-texture = ExtResource( 1 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 384, 64, 128, 128 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="grass"]
-
-[node name="beach2" type="Sprite" parent="."]
-position = Vector2( 947, 134 )
-texture = ExtResource( 1 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 448, 64, 128, 128 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="beach2"]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="beach2/StaticBody2D"]
-position = Vector2( 117, 64.125 )
-shape = SubResource( 2 )
-
-[node name="beach3" type="Sprite" parent="."]
-position = Vector2( 647, 138 )
-texture = ExtResource( 1 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 320, 64, 128, 128 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="beach3"]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="beach3/StaticBody2D"]
-position = Vector2( 10, 64 )
-shape = SubResource( 2 )
-
-[node name="beach4" type="Sprite" parent="."]
-position = Vector2( 800, 277 )
-texture = ExtResource( 1 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 384, 128, 128, 128 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="beach4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="beach4/StaticBody2D"]
-position = Vector2( 64, 117 )
-shape = SubResource( 1 )
+[node name="StaticBody2D" type="StaticBody2D" parent="grass_4"]
