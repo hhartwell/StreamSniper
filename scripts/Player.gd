@@ -4,13 +4,18 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const MAX_MOVE_SPEED = 500
+export(int) var MAX_MOVE_SPEED = 400
+export(int) var BULLET_SPEED = 1000
 export(Resource) var bullet_kit
 
+var MAX_HEALTH = 100
 
-const FIRERATE = 0.1
+
+const FIRERATE = 0.3
 
 var fire_timer = 0
+
+var current_health = MAX_HEALTH
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,10 +26,12 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
-	
-	
+	current_health -= delta
+	print(current_health/ MAX_HEALTH)
+
 	var move_dir = _get_movement_dir()
 	var movement = _process_movemnt(move_dir)
+	$healthbar.material.set_shader_param('health', current_health/ MAX_HEALTH)
 	move_and_slide(movement)
 	_process_shoot(delta)
 
@@ -32,15 +39,13 @@ func _process_shoot(delta):
 	var mouse_pos = get_global_mouse_position()
 	var end = mouse_pos
 	var start = global_position
-	var vec = (end - start).normalized() * 1000
-	print((end - start).angle())
+	var vec = (end - start).normalized() * BULLET_SPEED
 	var properties = {
 		"transform": Transform2D(vec.angle(), global_position),
 		"velocity": vec
 	}
 #	if Input.is_action_just_pressed("shoot"):
 	if Input.is_action_pressed("shoot"):
-		print(vec)
 		if fire_timer > FIRERATE:
 			Bullets.spawn_bullet(bullet_kit, properties)
 			fire_timer = 0

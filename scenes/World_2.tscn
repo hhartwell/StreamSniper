@@ -10,15 +10,6 @@
 
 [node name="MapGenerator" parent="." instance=ExtResource( 1 )]
 
-[node name="Player" parent="MapGenerator" instance=ExtResource( 2 )]
-position = Vector2( 198, 141 )
-
-[node name="Camera2D" type="Camera2D" parent="MapGenerator/Player"]
-current = true
-
-[node name="KinematicBody2D" parent="MapGenerator" instance=ExtResource( 5 )]
-TARGET = NodePath("../Player")
-
 [node name="BulletsEnvironment" type="Node" parent="."]
 script = ExtResource( 3 )
 bullet_kits = [ ExtResource( 4 ) ]
@@ -30,3 +21,14 @@ bullet_type_0/bullet_kit = ExtResource( 4 )
 bullet_type_0/pool_size = 500
 bullet_type_0/parent_hint = null
 bullet_type_0/z_index = 3000
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 198, 141 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="BasicEnemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 464, 177 )
+TARGET = NodePath("../Player")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/Rock Pile.png-051d9b94ff847286ca4c57c240974989.stex"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 31.6 )
+
+[sub_resource type="StreamTexture" id=5]
+flags = 4
+load_path = "res://.import/Rock Pile.png-051d9b94ff847286ca4c57c240974989.stex"
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 64, 64 )
+
+[node name="RockTileSet" type="Node2D"]
+
+[node name="Rock" type="Sprite" parent="."]
+texture = SubResource( 4 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rock"]
+
+[node name="RockShape" type="CollisionShape2D" parent="Rock/StaticBody2D"]
+position = Vector2( 0, 36.875 )
+scale = Vector2( 1.25, 1.25 )
+shape = SubResource( 1 )
+
+[node name="Rock2" type="Sprite" parent="."]
+position = Vector2( 180, 0 )
+texture = SubResource( 5 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rock2"]
+
+[node name="RockShape_2" type="CollisionShape2D" parent="Rock2/StaticBody2D"]
+scale = Vector2( 1.25, 1.25 )
+shape = SubResource( 3 )

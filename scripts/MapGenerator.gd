@@ -3,6 +3,7 @@ extends Node2D
 #onready var dirt_tilemap = $DirtTileMap
 #onready var wall_tilemap = $WallTileMap
 onready var grass_tilemap = $GrassTileMap
+onready var rock_tilemap = $RockTileMap
 
 var rng = RandomNumberGenerator.new()
 
@@ -20,7 +21,7 @@ var Tiles = {
 	"grass_0": 0,
 	"grass_1": 1,
 	"grass_2": 2,
-	"grass_3": 3
+	"grass_3": 3,
 }
 
 func _init_grid():
@@ -73,6 +74,11 @@ func _create_random_path():
 func _spawn_tiles():
 	for x in width:
 		for y in height:
+			if x == 0 or x == width:
+				rock_tilemap.set_cellv(Vector2(x, y), 1)
+			elif y == 0 or y == height:
+				rock_tilemap.set_cellv(Vector2(x, y), 0)
+			
 			match grid[x][y]:
 				Tiles.grass_0:
 					grass_tilemap.set_cellv(Vector2(x, y), 0)

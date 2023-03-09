@@ -76,7 +76,7 @@ _global_script_class_icons={
 
 config/name="bullet"
 run/main_scene="res://scenes/World_2.tscn"
-config/icon="res://icon.png"
+config/icon="res://images/icon.png"
 
 [autoload]
 

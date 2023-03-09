@@ -1,10 +1,11 @@
 extends KinematicBody2D
 #const MAX_MOVE_SPEED = 500
-export(int) var MAX_MOVE_SPEED = 500
+export(int) var MAX_MOVE_SPEED = 300
+export(int) var BULLET_SPEED = 1000
 export(int) var NEW_DIRECTION_INTERVAL = 1
 
-export(int) var DANGER_ZONE = 300
-export(int) var DANGER_BUFFER = 50
+export(int) var DANGER_ZONE = 700
+export(int) var DANGER_BUFFER = 300
 export var TARGET: NodePath
 
 var direction = 1
@@ -27,8 +28,6 @@ func _process(delta):
 			
 		if distance_vec.x < 0 and distance_vec.y > 0:
 			direction = 7
-			
-#		print(distance_vec.normalized())
 		direction_timer = 0
 
 		move_and_slide(distance_vec * MAX_MOVE_SPEED)
@@ -51,37 +50,27 @@ func _process_vec_dir(dir: Vector2):
 	
 	if 0 >= theta and theta < interval:
 		return 3
-		pass
 	elif interval >= theta and theta < interval * 2:
-		return 4
 		# down right
-		pass
+		return 4
 	elif interval * 2 >= theta and theta < interval * 3:
-		return 5
 		# down
-		pass
+		return 5
 	elif interval * 3 >= theta and theta < interval * 4:
 		return 6
 		# down left
-		pass
 	elif interval * 4 >= theta and theta < interval * 5:
 		return 7
 		# left
-		pass
 	elif interval * 5 >= theta and theta < interval * 6:
 		return 8
 		# up left 
-		pass
 	elif interval * 6 >= theta and theta < interval * 7:
 		return 1
 		# up
-		pass
 	else:
 		return 2
 		# up right
-		pass
-	print(dir)
-	pass
 func _process_movemnt(dir):
 	var movement = Vector2.ZERO
 	match(dir):
