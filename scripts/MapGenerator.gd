@@ -25,8 +25,6 @@ var Tiles = {
 }
 
 func _init_grid():
-	print('w', width)
-	print('h', height)
 	grid = []
 	for x in width:
 		grid.append([])
@@ -74,9 +72,9 @@ func _create_random_path():
 func _spawn_tiles():
 	for x in width:
 		for y in height:
-			if x == 0 or x == width:
+			if x == 0 or x == width - 1:
 				rock_tilemap.set_cellv(Vector2(x, y), 1)
-			elif y == 0 or y == height:
+			elif y == 0 or y == height - 1:
 				rock_tilemap.set_cellv(Vector2(x, y), 0)
 			
 			match grid[x][y]:

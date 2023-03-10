@@ -10,12 +10,14 @@ export(Resource) var bullet_kit
 
 var MAX_HEALTH = 100
 
+const BULLET_DMG_COOLDOWN = .2
+var dmg_cooldown_timer = 0
 
 const FIRERATE = 0.3
 
 var fire_timer = 0
 
-var current_health = MAX_HEALTH
+var current_health = float(MAX_HEALTH)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,12 +28,10 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
-	current_health -= delta
-	print(current_health/ MAX_HEALTH)
-
+	dmg_cooldown_timer += delta
+	$healthbar.material.set_shader_param('health', current_health / MAX_HEALTH)
 	var move_dir = _get_movement_dir()
 	var movement = _process_movemnt(move_dir)
-	$healthbar.material.set_shader_param('health', current_health/ MAX_HEALTH)
 	move_and_slide(movement)
 	_process_shoot(delta)
 
@@ -42,12 +42,17 @@ func _process_shoot(delta):
 	var vec = (end - start).normalized() * BULLET_SPEED
 	var properties = {
 		"transform": Transform2D(vec.angle(), global_position),
-		"velocity": vec
+		"velocity": vec,
+		"data": {'is_enemy': false}
 	}
 #	if Input.is_action_just_pressed("shoot"):
 	if Input.is_action_pressed("shoot"):
 		if fire_timer > FIRERATE:
 			Bullets.spawn_bullet(bullet_kit, properties)
+			
+#			var bullet_id = Bullets.obtain_bullet(bullet_kit)
+			
+			
 			fire_timer = 0
 	fire_timer += delta
 		
@@ -104,3 +109,21 @@ func _process_movemnt(dir):
 			movement.x = -MAX_MOVE_SPEED
 			movement.y = -MAX_MOVE_SPEED
 	return movement
+
+
+func _on_Area2D_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	
+	if not Bullets.is_bullet_existing(area_rid, area_shape_index):
+		# The colliding area is not a bullet, returning.
+		return
+	var bullet_id = Bullets.get_bullet_from_shape(area_rid, area_shape_index)
+	var bullet_transform = Bullets.get_bullet_property(bullet_id, "transform")
+	
+	var bullet_is_enemy = Bullets.get_bullet_property(bullet_id, "data").is_enemy
+	if dmg_cooldown_timer > BULLET_DMG_COOLDOWN and bullet_is_enemy:
+		Bullets.call_deferred("release_bullet", bullet_id)
+		print(current_health)
+		current_health -= 20
+		dmg_cooldown_timer = 0
+		print(current_health)
+		

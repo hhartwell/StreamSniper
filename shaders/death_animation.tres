@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float opacity;
+
+
+void fragment() {
+	vec4 main_texture = texture(TEXTURE, UV);
+	COLOR.rgb = main_texture.rgb;
+	COLOR.a = opacity;
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/opacity = 1.0
