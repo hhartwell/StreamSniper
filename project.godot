@@ -14,12 +14,12 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/basic_bullet_kit.gdns"
 }, {
-"base": "",
+"base": "Resource",
 "class": "BulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/bullet_kit.gdns"
 }, {
-"base": "",
+"base": "Node2D",
 "class": "Bullets",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/bullets.gdns"
@@ -34,20 +34,45 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/native_bullets/utils/bullets_spawner.gd"
 }, {
-"base": "",
+"base": "Reference",
+"class": "CommandData",
+"language": "GDScript",
+"path": "res://addons/gift/util/cmd_data.gd"
+}, {
+"base": "Reference",
+"class": "CommandInfo",
+"language": "GDScript",
+"path": "res://addons/gift/util/cmd_info.gd"
+}, {
+"base": "Resource",
 "class": "DynamicBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/dynamic_bullet_kit.gdns"
 }, {
-"base": "",
+"base": "Resource",
 "class": "FollowingBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/following_bullet_kit.gdns"
 }, {
-"base": "",
+"base": "Resource",
 "class": "FollowingDynamicBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/following_dynamic_bullet_kit.gdns"
+}, {
+"base": "Node",
+"class": "Gift",
+"language": "GDScript",
+"path": "res://addons/gift/gift_node.gd"
+}, {
+"base": "Resource",
+"class": "ImageCache",
+"language": "GDScript",
+"path": "res://addons/gift/util/image_cache.gd"
+}, {
+"base": "Reference",
+"class": "SenderData",
+"language": "GDScript",
+"path": "res://addons/gift/util/sender_data.gd"
 }, {
 "base": "Node",
 "class": "TimedEvents",
@@ -65,9 +90,14 @@ _global_script_class_icons={
 "Bullets": "res://addons/native_bullets/icons/icon_bullets.svg",
 "BulletsEnvironment": "res://addons/native_bullets/icons/icon_bullets_environment.svg",
 "BulletsSpawner": "res://addons/native_bullets/icons/icon_bullet_properties.svg",
+"CommandData": "",
+"CommandInfo": "",
 "DynamicBulletKit": "res://addons/native_bullets/icons/icon_bullet_kit.svg",
 "FollowingBulletKit": "res://addons/native_bullets/icons/icon_bullet_kit.svg",
 "FollowingDynamicBulletKit": "res://addons/native_bullets/icons/icon_bullet_kit.svg",
+"Gift": "",
+"ImageCache": "",
+"SenderData": "",
 "TimedEvents": "res://addons/native_bullets/icons/icon_timed_events.svg",
 "TimedRotator": "res://addons/native_bullets/icons/icon_timed_rotator.svg"
 }
@@ -84,7 +114,7 @@ Bullets="*res://addons/native_bullets/bullets.gdns"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/native_bullets/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/gift/plugin.cfg", "res://addons/native_bullets/plugin.cfg" )
 
 [gui]
 

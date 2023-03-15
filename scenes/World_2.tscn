@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/MapGenerator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/native_bullets/bullets_environment.gd" type="Script" id=3]
 [ext_resource path="res://kits/green_basic_bullet_kit.tres" type="Resource" id=4]
+[ext_resource path="res://scripts/Gift.gd" type="Script" id=5]
 [ext_resource path="res://scenes/EnemySpawner.tscn" type="PackedScene" id=6]
 
 [node name="World_2" type="Node2D"]
@@ -34,3 +35,6 @@ zoom = Vector2( 1.5, 1.5 )
 [node name="EnemySpawner" parent="." instance=ExtResource( 6 )]
 MapGenerator = NodePath("../MapGenerator")
 Player = NodePath("../Player")
+
+[node name="Gift" type="Node" parent="."]
+script = ExtResource( 5 )
