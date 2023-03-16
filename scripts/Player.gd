@@ -19,6 +19,9 @@ var fire_timer = 0
 
 var current_health = float(MAX_HEALTH)
 
+var laser_sound = preload("res://sounds/LongScreech.wav")
+var laser_charge = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -45,8 +48,33 @@ func _process_shoot(delta):
 		"velocity": vec,
 		"data": {'is_enemy': false}
 	}
+	
+	
+	if Input.is_action_pressed("special"):
+		# if we just started charging laser play charge up noise
+		if laser_charge == 0:
+			$"../AudioStreamPlayer".stream = laser_sound
+			$"../AudioStreamPlayer".play()
+		
+		laser_charge += .01  # make this take ~1.5 seconds?
+		
+		# if laser charge is full, it does more power or whatever
+		
+		print("CHARGING " + str(laser_charge))
+			
+		if laser_charge > 3:
+			print("%%%%%%%%%%%% SPECIAL!")
+			
+			laser_charge = 0
+			fire_timer = 0
+			
+	elif laser_charge > 0:
+		# Laser was charging, but isn't any more .. reset it and stop noise!
+		laser_charge = 0
+		$"../AudioStreamPlayer".stop()
+	
 #	if Input.is_action_just_pressed("shoot"):
-	if Input.is_action_pressed("shoot"):
+	elif Input.is_action_pressed("shoot"):
 		if fire_timer > FIRERATE:
 			Bullets.spawn_bullet(bullet_kit, properties)
 			
@@ -77,6 +105,7 @@ func _get_movement_dir():
 	
 	elif Input.is_action_pressed("move_left"):	
 		return 7
+		
 func _process_movemnt(dir):
 	var movement = Vector2.ZERO
 	match(dir):
