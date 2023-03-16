@@ -51,6 +51,10 @@ func _process_shoot(delta):
 	
 	
 	if Input.is_action_pressed("special"):
+		if not $Laser.is_casting:
+			$Laser.is_casting = true
+		
+		
 		# if we just started charging laser play charge up noise
 		if laser_charge == 0:
 			$"../AudioStreamPlayer".stream = laser_sound
@@ -62,14 +66,17 @@ func _process_shoot(delta):
 		
 		print("CHARGING " + str(laser_charge))
 			
-		if laser_charge > 3:
+		if laser_charge > 3.5:
 			print("%%%%%%%%%%%% SPECIAL!")
+			
+			$Laser.is_casting = false
 			
 			laser_charge = 0
 			fire_timer = 0
 			
 	elif laser_charge > 0:
 		# Laser was charging, but isn't any more .. reset it and stop noise!
+		$Laser.is_casting = false
 		laser_charge = 0
 		$"../AudioStreamPlayer".stop()
 	

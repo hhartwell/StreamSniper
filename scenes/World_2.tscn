@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/MapGenerator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://kits/green_basic_bullet_kit.tres" type="Resource" id=4]
 [ext_resource path="res://scripts/Gift.gd" type="Script" id=5]
 [ext_resource path="res://scenes/EnemySpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Laser.tscn" type="PackedScene" id=7]
 
 [node name="World_2" type="Node2D"]
 
@@ -27,6 +28,9 @@ bullet_type_0/z_index = 3000
 position = Vector2( 198, 141 )
 MAX_MOVE_SPEED = 1000
 BULLET_SPEED = 500
+
+[node name="Laser" parent="Player" instance=ExtResource( 7 )]
+position = Vector2( 0, 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
