@@ -19,7 +19,9 @@ var fire_timer = 0
 
 var current_health = float(MAX_HEALTH)
 
-var laser_sound = preload("res://sounds/LongScreech.wav")
+var laser_screech_sound = preload("res://sounds/ScreechWithEnd.wav")
+#var laser_start_sound = preload("res://sounds/LongScreech.wav")
+#var laser_end_sound = preload("res://sounds/ScreechEnd.wav")
 var laser_charge = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -50,14 +52,13 @@ func _process_shoot(delta):
 	}
 	
 	
-	if Input.is_action_pressed("special"):
+	if Input.is_action_pressed("special") and fire_timer > FIRERATE:
 		if not $Laser.is_casting:
 			$Laser.is_casting = true
 		
-		
 		# if we just started charging laser play charge up noise
 		if laser_charge == 0:
-			$"../AudioStreamPlayer".stream = laser_sound
+			$"../AudioStreamPlayer".stream = laser_screech_sound
 			$"../AudioStreamPlayer".play()
 		
 		laser_charge += .01  # make this take ~1.5 seconds?
@@ -66,15 +67,18 @@ func _process_shoot(delta):
 		
 		print("CHARGING " + str(laser_charge))
 			
-		if laser_charge > 3.5:
+		if laser_charge > 10:
 			print("%%%%%%%%%%%% SPECIAL!")
+			
+			#$"../AudioStreamPlayer".stream = laser_end_sound
+			#$"../AudioStreamPlayer".play()
 			
 			$Laser.is_casting = false
 			
-			laser_charge = 0
-			fire_timer = 0
+			#laser_charge = 0
+			fire_timer = -100
 			
-	elif laser_charge > 0:
+	elif laser_charge > 0 and fire_timer > 0:
 		# Laser was charging, but isn't any more .. reset it and stop noise!
 		$Laser.is_casting = false
 		laser_charge = 0
