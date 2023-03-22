@@ -12,11 +12,15 @@ func _ready() -> void:
 	$Line2D.points[1] = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	var cast_point := cast_to
+	#var cast_point := cast_to
 	force_raycast_update()
 	
-	if is_colliding():
-		cast_point = to_local(get_collision_point())
+	# TODO: If we want to only display stuff when colliding, use this?
+	#if is_colliding():
+	#	cast_point = to_local(get_collision_point())
+		
+	#var cast_point = get_viewport().get_mouse_position()
+	var cast_point = get_global_mouse_position()
 		
 	$Line2D.points[1] = cast_point
 
@@ -33,11 +37,13 @@ func set_is_casting(cast: bool) -> void:
 
 
 func appear() -> void:
-	$Tween.stop_all()
+	if $Tween.is_active():
+		$Tween.stop_all()
 	$Tween.interpolate_property($Line2D, "width", 0, 10.0, 0.2)
 	$Tween.start()
 	
 func disappear() -> void:
-	$Tween.stop_all()
+	if $Tween.is_active():
+		$Tween.stop_all()
 	$Tween.interpolate_property($Line2D, "width", 10.0, 0, 0.2)
 	$Tween.start()
