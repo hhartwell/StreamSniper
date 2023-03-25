@@ -116,6 +116,10 @@ Bullets="*res://addons/native_bullets/bullets.gdns"
 
 enabled=PoolStringArray( "res://addons/gift/plugin.cfg", "res://addons/native_bullets/plugin.cfg" )
 
+[global]
+
+tab=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
