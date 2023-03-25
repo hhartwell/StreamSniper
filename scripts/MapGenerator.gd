@@ -36,9 +36,10 @@ func GetRandomDirection():
     var directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
     var direction = directions[rng.randi()%4]
     return Vector2(direction[0], direction[1])
-    
+
+
 func _create_random_path():
-    var max_iterations = 5000
+    var max_iterations = 90000
     var itr = 0
     
     var walker = Vector2.ZERO
