@@ -24,7 +24,7 @@ bullet_type_0/z_index = 3000
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 198, 141 )
-MAX_MOVE_SPEED = 1000
+MAX_MOVE_SPEED = 500
 BULLET_SPEED = 500
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

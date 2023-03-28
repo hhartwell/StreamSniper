@@ -19,6 +19,12 @@ var fire_timer = 0
 
 var current_health = float(MAX_HEALTH)
 
+
+onready var animation_player = $CollisionShape2D/AnimationPlayer
+var anim = 'idle'
+var new_anim = 'idle'
+var facing_right = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -33,6 +39,10 @@ func _process(delta):
 	var move_dir = _get_movement_dir()
 	var movement = _process_movemnt(move_dir)
 	move_and_slide(movement)
+
+	if new_anim != anim:
+		anim = new_anim
+		animation_player.play(anim)
 	_process_shoot(delta)
 
 func _process_shoot(delta):
@@ -55,9 +65,10 @@ func _process_shoot(delta):
 			
 			fire_timer = 0
 	fire_timer += delta
-		
+
 func _get_movement_dir():
 	if Input.is_action_pressed("move_up"):
+		new_anim = 'back_walk'
 		if Input.is_action_pressed("move_right"):
 			return 2
 		elif Input.is_action_pressed("move_left"):
@@ -65,6 +76,7 @@ func _get_movement_dir():
 		else:
 			return 1
 	elif Input.is_action_pressed("move_down"):
+		new_anim = 'forward_walk'
 		if Input.is_action_pressed("move_right"):
 			return 4
 		elif Input.is_action_pressed("move_left"):
@@ -73,10 +85,21 @@ func _get_movement_dir():
 			return 5
 	
 	elif Input.is_action_pressed("move_right"):
+		new_anim = 'walk'
+		if not facing_right:
+			facing_right = true
+			$CollisionShape2D/Sprite.flip_h = !$CollisionShape2D/Sprite.flip_h
 		return 3
 	
-	elif Input.is_action_pressed("move_left"):	
+	elif Input.is_action_pressed("move_left"):
+		new_anim = 'walk'
+		if facing_right:
+			facing_right = false
+			$CollisionShape2D/Sprite.flip_h = !$CollisionShape2D/Sprite.flip_h
 		return 7
+	else:
+		new_anim = 'idle'
+
 func _process_movemnt(dir):
 	var movement = Vector2.ZERO
 	match(dir):
