@@ -19,7 +19,8 @@ var fire_timer = 0
 
 var current_health = float(MAX_HEALTH)
 
-var laser_screech_sound = preload("res://sounds/ScreechWithEnd.wav")
+#var laser_screech_sound = preload("res://sounds/ScreechWithEnd.wav")
+var laser_screech_sound = preload("res://sounds/LongScreech2.wav")
 #var laser_start_sound = preload("res://sounds/LongScreech.wav")
 #var laser_end_sound = preload("res://sounds/ScreechEnd.wav")
 var laser_charge = 0
