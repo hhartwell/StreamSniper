@@ -14,12 +14,12 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/basic_bullet_kit.gdns"
 }, {
-"base": "Resource",
+"base": "",
 "class": "BulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/bullet_kit.gdns"
 }, {
-"base": "Node2D",
+"base": "",
 "class": "Bullets",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/bullets.gdns"
@@ -44,17 +44,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gift/util/cmd_info.gd"
 }, {
-"base": "Resource",
+"base": "",
 "class": "DynamicBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/dynamic_bullet_kit.gdns"
 }, {
-"base": "Resource",
+"base": "",
 "class": "FollowingBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/following_bullet_kit.gdns"
 }, {
-"base": "Resource",
+"base": "",
 "class": "FollowingDynamicBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/following_dynamic_bullet_kit.gdns"
@@ -114,11 +114,7 @@ Bullets="*res://addons/native_bullets/bullets.gdns"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/gift/plugin.cfg", "res://addons/native_bullets/plugin.cfg" )
-
-[global]
-
-tab=false
+enabled=PoolStringArray( "res://addons/native_bullets/plugin.cfg" )
 
 [gui]
 
