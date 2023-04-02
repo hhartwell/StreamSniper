@@ -35,8 +35,10 @@ func _physics_process(delta: float) -> void:
 	cast_to = $Line2D.points[1]
 	
 	# Draw particles along beam
-	$BeamParticles.position = cast_point * 0.5
-	$BeamParticles.process_material.emission_box_extents.x = laser_length
+	#$BeamParticles.position = cast_point * 0.5
+	$BeamParticles.position = start_point * 0.5
+	#$BeamParticles.process_material.emission_box_extents.x = laser_length
+	$BeamParticles.process_material.emission_box_extents.x = cast_point.length() * 0.5
 
 
 func set_is_casting(cast: bool) -> void:

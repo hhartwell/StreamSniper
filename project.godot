@@ -14,12 +14,12 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/basic_bullet_kit.gdns"
 }, {
-"base": "",
+"base": "Resource",
 "class": "BulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/bullet_kit.gdns"
 }, {
-"base": "",
+"base": "Node2D",
 "class": "Bullets",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/bullets.gdns"
@@ -44,17 +44,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gift/util/cmd_info.gd"
 }, {
-"base": "",
+"base": "Resource",
 "class": "DynamicBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/dynamic_bullet_kit.gdns"
 }, {
-"base": "",
+"base": "Resource",
 "class": "FollowingBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/following_bullet_kit.gdns"
 }, {
-"base": "",
+"base": "Resource",
 "class": "FollowingDynamicBulletKit",
 "language": "NativeScript",
 "path": "res://addons/native_bullets/kits/following_dynamic_bullet_kit.gdns"
@@ -160,4 +160,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/filters/msaa=1
 environment/default_environment="res://default_env.tres"
