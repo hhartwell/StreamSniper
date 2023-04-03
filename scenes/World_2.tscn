@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/MapGenerator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,17 +7,6 @@
 [ext_resource path="res://scripts/Gift.gd" type="Script" id=5]
 [ext_resource path="res://scenes/EnemySpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Laser.tscn" type="PackedScene" id=7]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_levels/4 = true
-glow_intensity = 0.5
-glow_blend_mode = 0
-glow_hdr_threshold = 0.54
-glow_hdr_scale = 0.76
-glow_bicubic_upscale = true
-glow_high_quality = true
 
 [node name="World_2" type="Node2D"]
 
@@ -56,6 +45,3 @@ Player = NodePath("../Player")
 script = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
