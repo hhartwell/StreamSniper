@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Defencer 1E[single].png-c511b5a3eaf0b5f73dbc4631127f61a6.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://images/Free Enemies Pack/Single/Defencer 1E[single].png"
+dest_files=[ "res://.import/Defencer 1E[single].png-c511b5a3eaf0b5f73dbc4631127f61a6.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
