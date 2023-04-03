@@ -1,10 +1,16 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/Laser.gd" type="Script" id=1]
 [ext_resource path="res://images/glowing_circle.png" type="Texture" id=2]
 [ext_resource path="res://images/particle.png" type="Texture" id=3]
 [ext_resource path="res://shaders/LaserWavey.gdshader" type="Shader" id=4]
 [ext_resource path="res://images/Placeholder.png" type="Texture" id=7]
+
+[sub_resource type="OpenSimplexNoise" id=16]
+period = 49.7
+
+[sub_resource type="NoiseTexture" id=17]
+noise = SubResource( 16 )
 
 [sub_resource type="OpenSimplexNoise" id=12]
 octaves = 1
@@ -37,18 +43,24 @@ noise = SubResource( 10 )
 shader = ExtResource( 4 )
 shader_param/scroll1 = Vector2( 1, 0.4 )
 shader_param/scroll2 = Vector2( 0.2, 1.4 )
+shader_param/edge_scroll = Vector2( 1.4, 0.4 )
 shader_param/speed = 1.0
 shader_param/xStretch = 0.1
 shader_param/yStretch = 0.1
-shader_param/laserSize = 0.747
-shader_param/wobbliness = 0.12
+shader_param/laserSize = 0.287
+shader_param/wobbliness = 0.282
+shader_param/edge_jaggedness = 0.1
 shader_param/color1 = Color( 1, 1, 1, 1 )
-shader_param/color2 = Color( 0.87451, 0.996078, 1, 1 )
-shader_param/colorMixFactor = 7.93
+shader_param/color2 = Color( 0.54902, 0.92549, 0.937255, 1 )
+shader_param/colorMixFactor = 7.831
 shader_param/glowFactor = 3.025
 shader_param/minAlpha = 0.3
+shader_param/waveFrequency = 4.911
+shader_param/waveAmplitude = 0.654
+shader_param/waveSpeed = 1.0
 shader_param/NOISE_PATTERN1 = SubResource( 13 )
 shader_param/NOISE_PATTERN2 = SubResource( 15 )
+shader_param/EDGE_NOISE_PATTERN = SubResource( 17 )
 shader_param/TRANSPARENCY_VARIATION = SubResource( 11 )
 
 [sub_resource type="Gradient" id=4]
